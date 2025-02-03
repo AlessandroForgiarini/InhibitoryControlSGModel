@@ -1,0 +1,268 @@
+
+Parsing model...
+
+Type:        DTMC
+Modules:     Manager Gameplay Patient
+Variables:   dm_active_ticks_to_generate_ball dm_current_session dm_have_to_prepare_new_session dm_running_session dm_game_match_is_over sg_timer_to_spawn few_balls_on_table_timer in_game_go_balls_counter in_game_no_go_balls_counter patient_have_to_begin_game_match patient_recovery_timer patient_premature_end_game_match correct_throws_counter wrong_throws_counter no_go_wrong_throws_counter throw_made_type
+
+---------------------------------------------------------------------
+
+Building model...
+
+Warning: Update 2 of command 10 of module "Gameplay" doesn't do anything (line 397, column 17)
+
+Warning: Update 1 of command 10 of module "Patient" doesn't do anything (line 658, column 17)
+
+Warning: Update 2 of command 10 of module "Patient" doesn't do anything (line 663, column 17)
+
+Warning: Update 1 of command 11 of module "Patient" doesn't do anything (line 711, column 17)
+
+Warning: Update 2 of command 11 of module "Patient" doesn't do anything (line 716, column 17)
+
+Computing reachable states...
+
+Reachability (BFS): 1979 iterations in 3.08 seconds (average 0.001555, setup 0.00)
+
+Time for model construction: 3.534 seconds.
+
+Type:        DTMC
+States:      2158555 (1 initial)
+Transitions: 3200512
+
+Transition matrix: 18569 nodes (31 terminal), 3200512 minterms, vars: 45r/45c
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F (((total_balls_in_game=max_balls_in_game)|(no_go_wrong_throws_counter>max_no_go_wrong_throws)|patient_premature_end_game_match|dm_current_session=total_sessions)&(X dm_game_match_is_over=true)) ]
+
+Warning: Switching to sparse engine and (backwards) Gauss Seidel (default for heuristic=speed).
+
+Building deterministic automaton (for F ("L0"&(X "L1")))...
+DFA has 3 states, 1 goal states.
+Time for deterministic automaton translation: 0.0 seconds.
+
+Constructing MC-DFA product...
+
+Reachability (BFS): 1979 iterations in 1.58 seconds (average 0.000797, setup 0.00)
+
+States:      2158555 (1 initial)
+Transitions: 3200512
+
+Transition matrix: 20485 nodes (31 terminal), 3200512 minterms, vars: 47r/47c
+
+Skipping BSCC computation since acceptance is defined via goal states...
+
+Computing reachability probabilities...
+
+Prob0: 16 iterations in 0.03 seconds (average 0.001937, setup 0.00)
+
+Prob1: 1 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 2158555, no = 0, maybe = 0
+
+Value in the initial state: 1.0
+
+Time for model checking: 2.035 seconds.
+
+Result: 1.0
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ G (!((game_is_running&patient_can_throw))|(X (throw_made_type!=0))) ]
+
+Warning: Switching to sparse engine and (backwards) Gauss Seidel (default for heuristic=speed).
+
+Building deterministic automaton (for G ("L0"|(X "L1")))...
+DRA has 4 states, 1 Rabin pairs.
+Time for deterministic automaton translation: 0.0 seconds.
+
+Constructing MC-DRA product...
+
+Reachability (BFS): 1979 iterations in 1.95 seconds (average 0.000987, setup 0.00)
+
+States:      2158555 (1 initial)
+Transitions: 3200512
+
+Transition matrix: 20267 nodes (31 terminal), 3200512 minterms, vars: 47r/47c
+
+Finding accepting BSCCs...
+
+SCCs: 115503, BSCCs: 115503, non-BSCC states: 2043052
+BSCC sizes: More than 10 BSCCs, use verbose mode to view sizes for all.
+
+Computing reachability probabilities...
+
+Prob0: 16 iterations in 0.05 seconds (average 0.002938, setup 0.00)
+
+Prob1: 1 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 2158555, no = 0, maybe = 0
+
+Value in the initial state: 1.0
+
+Time for model checking: 119.95 seconds.
+
+Result: 1.0
+
+---------------------------------------------------------------------
+
+Model checking: R{"running_session"}=? [ F dm_game_match_is_over ]
+
+Warning: Switching to sparse engine and (backwards) Gauss Seidel (default for heuristic=speed).
+
+Prob0: 16 iterations in 0.03 seconds (average 0.001937, setup 0.00)
+
+Prob1: 1 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+goal = 115503, inf = 0, maybe = 2043052
+
+Computing remaining rewards...
+Engine: Sparse
+
+Building sparse matrix... [n=2158555, nnz=3085009, compact] [13.8 MB]
+Creating vector for diagonals... [dist=1, compact] [4.1 MB]
+Creating vector for RHS... [dist=2, compact] [4.1 MB]
+Allocating iteration vector... [16.5 MB]
+TOTAL: [38.5 MB]
+
+Starting iterations...
+Iteration 464: max relative diff=0.000151, 5.02 sec so far
+Iteration 926: max relative diff=0.000002, 10.03 sec so far
+
+Backwards Gauss-Seidel: 993 iterations in 12.66 seconds (average 0.010873, setup 1.86)
+
+Value in the initial state: 163.21327761627964
+
+Time for model checking: 12.768 seconds.
+
+Result: 163.21327761627964 (+/- 0.00163194384635475 estimated; rel err 9.998842436039483E-6)
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ F (dm_current_session=10&(F (patient_premature_end_game_match=true&dm_current_session=10))) ]
+
+Warning: Switching to sparse engine and (backwards) Gauss Seidel (default for heuristic=speed).
+
+Building deterministic automaton (for F ("L0"&(F "L1")))...
+DFA has 3 states, 1 goal states.
+Time for deterministic automaton translation: 0.0 seconds.
+
+Constructing MC-DFA product...
+
+Reachability (BFS): 1979 iterations in 2.72 seconds (average 0.001374, setup 0.00)
+
+States:      2158555 (1 initial)
+Transitions: 3200512
+
+Transition matrix: 22307 nodes (31 terminal), 3200512 minterms, vars: 47r/47c
+
+Skipping BSCC computation since acceptance is defined via goal states...
+
+Computing reachability probabilities...
+
+Prob0: 496 iterations in 1.00 seconds (average 0.002016, setup 0.00)
+
+Prob1: 39 iterations in 0.19 seconds (average 0.004821, setup 0.00)
+
+yes = 4290, no = 1705753, maybe = 448512
+
+Computing remaining probabilities...
+Engine: Sparse
+
+Building sparse matrix... [n=2158555, nnz=696216, compact] [4.7 MB]
+Creating vector for diagonals... [dist=1, compact] [4.1 MB]
+Creating vector for RHS... [dist=2, compact] [4.1 MB]
+Allocating iteration vector... [16.5 MB]
+TOTAL: [29.4 MB]
+
+Starting iterations...
+
+Backwards Gauss-Seidel: 414 iterations in 3.86 seconds (average 0.008116, setup 0.50)
+
+Value in the initial state: 0.009527138657886479
+
+Time for model checking: 7.934 seconds.
+
+Result: 0.009527138657886479
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ G (!((dm_running_session=true)&(dm_have_to_prepare_new_session=false)&(dm_game_match_is_over=false)&(session_is_over)&(patient_have_to_begin_game_match=false)))|(X (dm_have_to_prepare_new_session=true&increase_difficulty)) ]
+
+Warning: Switching to sparse engine and (backwards) Gauss Seidel (default for heuristic=speed).
+
+Building deterministic automaton (for G "L0"|(X "L1"))...
+DRA has 4 states, 1 Rabin pairs.
+Time for deterministic automaton translation: 0.0 seconds.
+
+Constructing MC-DRA product...
+
+Reachability (BFS): 2201 iterations in 2.89 seconds (average 0.001313, setup 0.00)
+
+States:      3276617 (1 initial)
+Transitions: 4918973
+
+Transition matrix: 20540 nodes (31 terminal), 4918973 minterms, vars: 47r/47c
+
+Finding accepting BSCCs...
+
+SCCs: 179879, BSCCs: 179879, non-BSCC states: 3096738
+BSCC sizes: More than 10 BSCCs, use verbose mode to view sizes for all.
+
+Computing reachability probabilities...
+
+Prob0: 16 iterations in 0.05 seconds (average 0.002938, setup 0.00)
+
+Prob1: 71 iterations in 0.19 seconds (average 0.002634, setup 0.00)
+
+yes = 160645, no = 2468917, maybe = 647055
+
+Computing remaining probabilities...
+Engine: Sparse
+
+Building sparse matrix... [n=3276617, nnz=1195466, compact] [7.7 MB]
+Creating vector for diagonals... [dist=1, compact] [6.2 MB]
+Creating vector for RHS... [dist=2, compact] [6.2 MB]
+Allocating iteration vector... [25.0 MB]
+TOTAL: [45.2 MB]
+
+Starting iterations...
+
+Backwards Gauss-Seidel: 229 iterations in 3.83 seconds (average 0.012760, setup 0.91)
+
+Value in the initial state: 0.415025933266857
+
+Time for model checking: 195.287 seconds.
+
+Result: 0.415025933266857
+
+---------------------------------------------------------------------
+
+Model checking: P=? [ G (dm_active_ticks_to_generate_ball=5) ]
+
+Warning: Switching to sparse engine and (backwards) Gauss Seidel (default for heuristic=speed).
+
+Prob0: 82 iterations in 0.09 seconds (average 0.001146, setup 0.00)
+
+Prob1: 14 iterations in 0.03 seconds (average 0.002214, setup 0.00)
+
+yes = 1937827, no = 27697, maybe = 193031
+
+Computing remaining probabilities...
+Engine: Sparse
+
+Building sparse matrix... [n=2158555, nnz=288874, compact] [3.2 MB]
+Creating vector for diagonals... [dist=1, compact] [4.1 MB]
+Creating vector for RHS... [dist=2, compact] [4.1 MB]
+Allocating iteration vector... [16.5 MB]
+TOTAL: [27.9 MB]
+
+Starting iterations...
+
+Backwards Gauss-Seidel: 429 iterations in 3.80 seconds (average 0.007431, setup 0.61)
+
+Value in the initial state: 0.37216113037208953
+
+Time for model checking: 3.834 seconds.
+
+Result: 0.37216113037208953 (+/- 3.5677975421916134E-6 estimated; rel err 9.586701165230507E-6)

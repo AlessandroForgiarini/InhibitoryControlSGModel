@@ -1,0 +1,7 @@
+P=? [F (((total_balls_in_game = max_balls_in_game) | (no_go_wrong_throws_counter > max_no_go_wrong_throws) | patient_premature_end_game_match | dm_current_session=total_sessions) & (X dm_game_match_is_over=true)) ]
+
+P=? [G (!((game_is_running & patient_can_throw)) | (X (throw_made_type != 0)))]
+
+R{"runningSession"}=? [ F dm_game_match_is_over ]
+
+R{"difficultyDecrease"}=? [ F dm_game_match_is_over ]
