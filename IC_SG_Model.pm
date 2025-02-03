@@ -449,7 +449,7 @@ formula p_throw_no_go_ball = 1 - p_throw_go_ball;
 // formula p_slow_recovery = .0757142857;
 // formula p_stop_game_match = .0157142857;
 
-// Mild ND
+// Mild NCD
 // formula p_throw_correct_go = .8114285714;
 // formula p_throw_correct_no_go = .6428571429;
 // formula p_throw_wrong_go = 1 - p_throw_correct_go;
@@ -460,7 +460,7 @@ formula p_throw_no_go_ball = 1 - p_throw_go_ball;
 // formula p_slow_recovery = .1957142857;
 // formula p_stop_game_match = .02428571429;
 
-// Major ND
+// Major NCD
 formula p_throw_correct_go = .6714285714;
 formula p_throw_correct_no_go = .4714285714;
 formula p_throw_wrong_go = 1 - p_throw_correct_go;
