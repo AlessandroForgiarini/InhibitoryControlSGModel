@@ -460,7 +460,7 @@ formula p_throw_no_go_ball = 1 - p_throw_go_ball;
 // formula p_slow_recovery = .1957142857;
 // formula p_stop_game_match = .02428571429;
 
-// Slight major ND
+// Major ND
 formula p_throw_correct_go = .6714285714;
 formula p_throw_correct_no_go = .4714285714;
 formula p_throw_wrong_go = 1 - p_throw_correct_go;
